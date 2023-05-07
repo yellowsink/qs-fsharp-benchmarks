@@ -1,3 +1,3 @@
-﻿open core.TopLevel
+﻿open core
 
-printfn "%i" x
+A1BinaryTrees.run (Some 18)
