@@ -1,13 +1,12 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>net7.0;netstandard2.0</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
-
   <ItemGroup>
     <Compile Include="1-BinaryTrees.fs" />
-    <Compile Include="Library.fs" />
+    <Compile Include="2-CoroSieve.fs" />
+    <Compile Include="3-EDigits.fs" />
+    <Compile Include="Runner.fs" />
   </ItemGroup>
-
 </Project>

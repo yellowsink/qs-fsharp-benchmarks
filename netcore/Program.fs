@@ -1,3 +1,10 @@
-﻿open core
+﻿open System.Diagnostics
+open core
 
-A1BinaryTrees.run (Some 18)
+Runner.runAll
+    Stopwatch.StartNew
+    (fun sw ->
+        sw.Stop()
+        sw.Elapsed.TotalMicroseconds)
+    ignore
+    (printf "%s")

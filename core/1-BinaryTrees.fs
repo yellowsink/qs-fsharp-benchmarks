@@ -19,7 +19,7 @@ let rec createNode depth =
         { left = Some(createNode d)
           right = Some(createNode d) }
 
-let run n =
+let run n logger =
     let n = Option.defaultValue 6 n
 
     let maxDepth = max (MIN_DEPTH + 2) n
@@ -27,7 +27,7 @@ let run n =
 
     let stretchTree = createNode stretchDepth
 
-    printfn $"stretch tree of depth %d{stretchDepth}\tcheck: %d{check stretchTree}"
+    logger <| sprintf $"stretch tree of depth %d{stretchDepth}\tcheck: %d{check stretchTree}\n"
 
     let longLivedTree = createNode maxDepth
 
@@ -39,6 +39,6 @@ let run n =
             seq { 1..iterations }
             |> Seq.sumBy (fun _ -> createNode depth |> check)
 
-        printfn $"%d{iterations}\ttrees of depth %d{depth}\tcheck: %d{sum}"
+        logger <| sprintf $"%d{iterations}\ttrees of depth %d{depth}\tcheck: %d{sum}\n"
 
-    printfn $"long lived tree of depth %d{maxDepth}\tcheck: %d{check longLivedTree}"
+    logger <| sprintf $"long lived tree of depth %d{maxDepth}\tcheck: %d{check longLivedTree}\n"
