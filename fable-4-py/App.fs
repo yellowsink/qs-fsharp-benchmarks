@@ -1,6 +1,12 @@
 module App
 
-open core.TopLevel
-open FSharp.Core
+open Fable.Python.Time
+open core
 
-printfn "%i" x
+let timer = time.monotonic >> (*) 1000.
+
+Runner.runAll
+    timer
+    (fun sw -> timer() - sw)
+    ignore
+    (printfn "%s")
