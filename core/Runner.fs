@@ -1,39 +1,38 @@
 ﻿module core.Runner
 
-let inline avgAfter amount arr =
-    let sum = arr |> Seq.skip amount |> Seq.sum
-    let len = float <| Array.length arr - 1
-    sum / len
-
-let inline logTime log name times =
-    Array.append times [|avgAfter 1 times|]
-    |> Array.map (fun f -> sprintf $"\t%9.3f{f}μs")
-    |> String.concat ""
-    |> (fun s -> sprintf $"%s{name}%s{s}\n")
-    |> log
+let OVERHEAD_N = 10_000
+let WARMUP_N = 1_000
+let RESULTS_N = 5_000
 
 let benchmarks =
     [|"binary tree", A1BinaryTrees.run
-      "coro sieve ", A2CoroSieve.run
-      "e digits   ", A3EDigits.run|]
+      //"coro sieve ", A2CoroSieve.run
+      "e digits   ", A3EDigits.run
+      "fannkuch   ", A4FannkuchRedux.run|]
+
+let benchmarkNoOp _ _ = ()
+
+let benchmark timerStart timerEnd log n func =
+    let start = timerStart()
+    
+    for _ = 1 to n do
+        func None log
+    
+    (timerEnd start) / (float n)
 
 let runAll timerStart timerEnd logOut logBench =
-    [|"benchmark"; "warmup"; "run 1"; "run 2"; "run 3"; "run 4"; "run 5"; "mean"|]
-    // curried sprintf doesnt work with nativeaot
-    |> Array.map (fun s -> sprintf $"%9s{s}")
-    |> String.concat "\t"
-    |> logBench
+    let inline benchmark n func = benchmark timerStart timerEnd logOut n func
     
-    logBench "\n"
+    // measure overhead
+    ignore <| benchmark WARMUP_N benchmarkNoOp
+    let overhead = benchmark OVERHEAD_N benchmarkNoOp
+    
+    logBench $"benchmark overhead (x{OVERHEAD_N}): %.6f{overhead}μs\n\n"
+    
+    logBench $"benchmark\tresults (x{RESULTS_N})\n"
     
     for name, runBenchmark in benchmarks do
-        let results =
-            [|0..5|]
-            |> Array.map (fun _ ->
-                let start = timerStart ()
-                runBenchmark None logOut
-                let res = timerEnd start
+        ignore <|  benchmark WARMUP_N runBenchmark
+        let results = benchmark RESULTS_N runBenchmark
 
-                res)
-
-        logTime logBench name results
+        logBench $"{name}\t%9.3f{results - overhead}μs\n"
