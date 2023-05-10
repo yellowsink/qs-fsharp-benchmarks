@@ -13,7 +13,7 @@ let benchmarks =
 let benchmark timerStart timerEnd log n func =
     let start = timerStart()
     
-    for _ = 1 to n do
+    for _i = 1 to n do
         func None log
     
     (timerEnd start) / (float n)

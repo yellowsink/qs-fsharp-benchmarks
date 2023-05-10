@@ -35,7 +35,7 @@ let iter_perms n f =
             num.Value <- num.Value + 1
 
         else
-            for _ = 1 to ht do
+            for _i = 1 to ht do
                 do_iter num perm copy f (ht - 1)
                 rotate ht perm
 

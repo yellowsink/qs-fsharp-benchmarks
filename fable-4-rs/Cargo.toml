@@ -1,0 +1,11 @@
+[package]
+name = "fsharp-benchmark-rs"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+fable_library_rust = { path = "dist/fable_modules/fable-library-rust" }
+
+[[bin]]
+path = "dist/App.rs"
+name = "fsharp-benchmark-rs"

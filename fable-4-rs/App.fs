@@ -1,6 +1,14 @@
 module App
 
-open core.TopLevel
-open FSharp.Core
+open System
+open core
 
-printfn "%i" x
+[<EntryPoint>]
+let main _ =
+    Runner.runAll
+        (fun() -> DateTime.Now.Ticks)
+        (fun sw -> float (DateTime.Now.Ticks - sw) / 10_000.)
+        ignore
+        (printfn "%s")
+    
+    0
