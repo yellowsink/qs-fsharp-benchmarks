@@ -1,4 +1,4 @@
-﻿module core.Runner
+﻿module benchmarks.Runner
 
 let OVERHEAD_N = 10_000
 let WARMUP_N = 200

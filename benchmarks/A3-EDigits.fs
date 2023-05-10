@@ -1,4 +1,4 @@
-module core.A3EDigits
+module benchmarks.A3EDigits
 
 let LN10 = log 10.
 

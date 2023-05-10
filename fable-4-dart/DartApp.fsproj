@@ -11,6 +11,6 @@
     <PackageReference Include="Fable.Dart" Version="1.3.4" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\core\core.fsproj" />
+    <ProjectReference Include="..\benchmarks\benchmarks.fsproj" />
   </ItemGroup>
 </Project>

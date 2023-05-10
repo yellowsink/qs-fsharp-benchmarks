@@ -1,7 +1,7 @@
 module App
 
 open Browser.Performance
-open core
+open benchmarks
 
 Runner.runAll
     performance.now

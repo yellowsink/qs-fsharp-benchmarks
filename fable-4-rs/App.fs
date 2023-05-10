@@ -1,7 +1,7 @@
 module App
 
 open System
-open core
+open benchmarks
 
 [<EntryPoint>]
 let main _ =

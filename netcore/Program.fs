@@ -1,5 +1,5 @@
 ﻿open System.Diagnostics
-open core
+open benchmarks
 
 Runner.runAll
     Stopwatch.StartNew

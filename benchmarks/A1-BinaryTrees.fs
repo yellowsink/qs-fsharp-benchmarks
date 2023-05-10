@@ -1,4 +1,4 @@
-module core.A1BinaryTrees
+module benchmarks.A1BinaryTrees
 
 let MIN_DEPTH = 4
 

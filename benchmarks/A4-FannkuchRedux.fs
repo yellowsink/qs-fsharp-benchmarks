@@ -1,4 +1,4 @@
-module core.A4FannkuchRedux
+module benchmarks.A4FannkuchRedux
 
 let flip n (a: _[]) =
     for i = 0 to n / 2 do

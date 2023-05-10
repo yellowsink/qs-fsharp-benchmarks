@@ -1,7 +1,7 @@
 module App
 
 open Fable.Core
-open core
+open benchmarks
 
 [<Erase>]
 type IDateTimeApi = abstract now: unit -> {| microsecondsSinceEpoch: int |}

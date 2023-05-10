@@ -1,7 +1,7 @@
 module App
 
 open Fable.Python.Time
-open core
+open benchmarks
 
 let timer = time.monotonic >> (*) 1000.
 
