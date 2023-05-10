@@ -54,7 +54,7 @@ let run n logger =
     let mutable i = 0
     while i + 10 <= n do
       let end_ = i + 10
-      logger <| sprintf $"%s{s.[0..end_]}\t:%d{end_}\n"
+      logger $"%s{s.[0..end_]}\t:%d{end_}"
 
       i <- end_
 
@@ -62,4 +62,4 @@ let run n logger =
     if remLen > 0 then
       let padding = System.String.Join("", Seq.replicate (10 - remLen) " ")
 
-      logger <| sprintf $"%s{s.[i..n]}%s{padding}\t:%d{n}\n"
+      logger $"%s{s.[i..n]}%s{padding}\t:%d{n}"

@@ -27,7 +27,7 @@ let run n logger =
 
     let stretchTree = createNode stretchDepth
 
-    logger <| sprintf $"stretch tree of depth %d{stretchDepth}\tcheck: %d{check stretchTree}\n"
+    logger $"stretch tree of depth %d{stretchDepth}\tcheck: %d{check stretchTree}"
 
     let longLivedTree = createNode maxDepth
 
@@ -39,6 +39,6 @@ let run n logger =
             seq { 1..iterations }
             |> Seq.sumBy (fun _ -> createNode depth |> check)
 
-        logger <| sprintf $"%d{iterations}\ttrees of depth %d{depth}\tcheck: %d{sum}\n"
+        logger $"%d{iterations}\ttrees of depth %d{depth}\tcheck: %d{sum}"
 
-    logger <| sprintf $"long lived tree of depth %d{maxDepth}\tcheck: %d{check longLivedTree}\n"
+    logger $"long lived tree of depth %d{maxDepth}\tcheck: %d{check longLivedTree}"

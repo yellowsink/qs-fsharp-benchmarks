@@ -1,6 +1,10 @@
 module App
 
-open core.TopLevel
-open FSharp.Core
+open Browser.Performance
+open core
 
-printfn "%i" x
+Runner.runAll
+    performance.now
+    (fun sw -> performance.now() - sw)
+    ignore
+    (printfn "%s")

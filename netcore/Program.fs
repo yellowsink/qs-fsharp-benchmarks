@@ -7,4 +7,4 @@ Runner.runAll
         sw.Stop()
         sw.Elapsed.TotalMilliseconds)
     ignore
-    (printf "%s")
+    (printfn "%s")

@@ -55,4 +55,4 @@ let run n logger =
         csum <- csum + c * (1 - (num &&& 1) <<< 1)
         if c > m then m <- c)
     
-    logger $"{csum}nPfannkuchen({n}) = {m}\n"
+    logger $"{csum}nPfannkuchen({n}) = {m}"

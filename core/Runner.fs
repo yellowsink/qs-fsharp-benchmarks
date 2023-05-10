@@ -21,10 +21,10 @@ let benchmark timerStart timerEnd log n func =
 let runAll timerStart timerEnd logOut logBench =
     let inline benchmark n func = benchmark timerStart timerEnd logOut n func
     
-    logBench $"benchmark\tresults (x{RESULTS_N})\n"
+    logBench $"benchmark\tresults (x{RESULTS_N})"
     
     for name, runBenchmark in benchmarks do
-        ignore <|  benchmark WARMUP_N runBenchmark
+        ignore <| benchmark WARMUP_N runBenchmark
         let results = benchmark RESULTS_N runBenchmark
 
-        logBench $"{name}\t%9.3f{results}ms\n"
+        logBench $"{name}\t%9.3f{results}ms"
