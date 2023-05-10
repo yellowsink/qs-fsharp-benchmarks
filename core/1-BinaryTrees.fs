@@ -20,7 +20,7 @@ let rec createNode depth =
           right = Some(createNode d) }
 
 let run n logger =
-    let n = Option.defaultValue 6 n
+    let n = Option.defaultValue 10 n
 
     let maxDepth = max (MIN_DEPTH + 2) n
     let stretchDepth = maxDepth + 1

@@ -41,7 +41,7 @@ let rec sumTerms a b =
     tLeftA * tRightB + tRightA, tLeftB * tRightB
 
 let run n logger =
-    let n = Option.defaultValue 27 n
+    let n = Option.defaultValue 10000 n
 
     let k = binarySearch n
     let p, q = sumTerms 0 (k - 1)

@@ -5,6 +5,6 @@ Runner.runAll
     Stopwatch.StartNew
     (fun sw ->
         sw.Stop()
-        sw.Elapsed.TotalMicroseconds)
+        sw.Elapsed.TotalMilliseconds)
     ignore
     (printf "%s")
