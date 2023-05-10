@@ -4,10 +4,10 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="1-BinaryTrees.fs" />
-    <Compile Include="2-CoroSieve.fs" />
-    <Compile Include="3-EDigits.fs" />
-    <Compile Include="4-FannkuchRedux.fs" />
+    <Compile Include="A1-BinaryTrees.fs" />
+    <Compile Include="A2-CoroSieve.fs" />
+    <Compile Include="A3-EDigits.fs" />
+    <Compile Include="A4-FannkuchRedux.fs" />
     <Compile Include="Runner.fs" />
   </ItemGroup>
 </Project>
